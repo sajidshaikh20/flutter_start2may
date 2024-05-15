@@ -1,0 +1,45 @@
+class Constants {
+  static const String successMessage = "You will be contacted by us very soon.";
+
+  static const String  getQuick  = "Get quick loans with IIFL Finance";
+
+  static const String signUp  = "Sign up with your mobile number and unlock the hassle-free loan services";
+
+  static const String mobileNumber = "Mobile Number";
+
+  static const String enterMobileNumber = "Enter Your Mobile";
+
+  static const String termConditions = "By clicking on verify, you agree to Terms & conditions";
+
+  static const String verify = "Verify";
+
+  static const String continueTitle = "Continue";
+
+  static const String  enterOtp  = "Enter OTP";
+
+  static const String  sentTo  = "Sent to  ";
+
+  static const String  didNotReceive  = "Didn’t receive the OTP? Retry in  ";
+
+  static const String  verified  = "Verified";
+
+  static const String  verifiedSuccessfully  = "Your mobile number has been verified successfully";
+
+  static const String  welcomeTo  = "Welcome to";
+
+  static const String  enterFourDigitMpin  = "Enter 4 digit mPIN to secure your  loan account";
+
+  static const String  confirm  = "Confirm";
+
+  static const String  iWillDoItLater  = "I will do it later";
+
+  static const String  confirmMpin  = "Confirm mPIN";
+
+  static const String  setupMpin  = "Setup mPIN";
+
+  static const String  reEnterTitleMessage  = "Re-enter the same mPIN to confirm";
+  static const String  mPinError  = "M-Pin does not match";
+  static const String  setupSuccessful  = "Setup Successful";
+  static const String  setupSuccessfulTitle  = "Your mPIN has been set successfully";
+
+}

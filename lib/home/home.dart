@@ -1,0 +1,1 @@
+export 'package:flutter_start2may/model/user_data.dart';

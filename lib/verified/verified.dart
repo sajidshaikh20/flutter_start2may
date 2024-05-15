@@ -1,0 +1,1 @@
+export  'package:flutter_start2may/verified/ui/verified_page.dart';

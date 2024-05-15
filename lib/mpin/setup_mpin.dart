@@ -1,0 +1,1 @@
+export  'package:flutter_start2may/setupsuccessful/setup_successful_page.dart';
