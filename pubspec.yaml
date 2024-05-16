@@ -38,10 +38,11 @@ dependencies:
   cupertino_icons:
   google_fonts:
   otp_pin_field:
-  flutter_screenutil:
+  sizer: ^2.0.15
   fluttertoast:
   flutter_svg:
   go_router: ^14.1.1
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:

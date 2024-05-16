@@ -17,13 +17,13 @@ class _MyHomeState extends State<MyHome> {
     return Scaffold(
         appBar: AppBar(
           title: RichText(
-            text: TextSpan(
+            text: const TextSpan(
               text: "Hello, ",
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 12.sp,
+                  fontSize: 12,
                   fontWeight: FontWeight.w400),
-              children: const [
+              children: [
                 TextSpan(
                   text: "Rajesh Mehta",
                   style: TextStyle(
@@ -57,10 +57,10 @@ class _MyHomeState extends State<MyHome> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      height: 146.h,
-                      width: 328.w,
-                      decoration: BoxDecoration(
-                          gradient: const LinearGradient(
+                      height: 146,
+                      width: 328,
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(
                             begin: Alignment.bottomRight,
                             end: Alignment.topLeft,
                             colors: [
@@ -70,7 +70,7 @@ class _MyHomeState extends State<MyHome> {
                             stops: [0.007, 1],
                           ),
                           borderRadius:
-                              BorderRadius.all(Radius.circular(20.r))),
+                              BorderRadius.all(Radius.circular(20))),
                       child: Stack(
                         fit: StackFit.expand,
                         children: [

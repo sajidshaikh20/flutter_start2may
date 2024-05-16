@@ -8,22 +8,21 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  late Future<void> _navigationFuture;
   @override
   void initState() {
     super.initState();
+    _navigationFuture = _navigateAfterDelay();
+  }
+
+  Future<void> _navigateAfterDelay() async {
+    await Future.delayed(const Duration(seconds: 3));
+    context.goNamed(AppRoutes.rootLoginRoute.name);
+      //GoRouter.of(context).goNamed(AppRoutes.rootLoginRoute.name);
   }
 
   @override
   Widget build(BuildContext context) {
-    // GoRouter.of(context).go(AppPaths.login);
-
-    //GoRouter.of(context).pushNamed(MyAppRouteConstants.loginRouteName);
-
-    Future.delayed(const Duration(seconds: 3), () {
-      print('Three second has passed.');
-      Navigator.popAndPushNamed(context, '/login', arguments: "jsonObject");
-
-    });
     return Scaffold(
       body: Center(child: Image.asset("assets/images/Splash_logo.png")),
     );
@@ -31,6 +30,8 @@ class _SplashState extends State<Splash> {
 
   @override
   void dispose() {
+    _navigationFuture.ignore();
     super.dispose();
+    print("Splash screen dispose");
   }
 }

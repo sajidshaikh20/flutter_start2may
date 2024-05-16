@@ -1,5 +1,4 @@
 
-import 'package:flutter_start2may/navigation/app_paths.dart';
 
 import '../../../utils/exports.dart';
 
@@ -13,7 +12,8 @@ class SetupSuccessfulScreen extends StatelessWidget {
 
     Future.delayed(const Duration(seconds: 3), () {
       print('Three second has passed.');
-      Navigator.popAndPushNamed(context, AppPaths.home);
+    //  Navigator.popAndPushNamed(context, AppPaths.home);
+      context.goNamed(AppRoutes.getHome.name);
     });
 
     return Scaffold(
@@ -46,24 +46,24 @@ class SetupSuccessfulScreen extends StatelessWidget {
                 ],
               ),
             ),
-             Padding(
-              padding: const EdgeInsets.only(top: 40),
+             const Padding(
+              padding: EdgeInsets.only(top: 40),
               child: CustomTextWidget(
                 data: Constants.setupSuccessful,
-                fontSize: 24.sp,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
               ),
             ),
              Padding(
               padding: const EdgeInsets.symmetric(horizontal: 35),
               child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minWidth: 182.w
+                constraints: const BoxConstraints(
+                  minWidth: 182
 
                 ),
-                child: CustomTextWidget(
+                child: const CustomTextWidget(
                   data: Constants.setupSuccessfulTitle,
-                  fontSize: 16.sp,
+                  fontSize: 16,
                   color: ConstantColors.grey,
                   fontWeight: FontWeight.w500,
                   textAlign: TextAlign.center,

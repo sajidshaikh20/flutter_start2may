@@ -1,4 +1,3 @@
-import 'package:flutter_start2may/navigation/app_paths.dart';
 
 import '../../../utils/exports.dart';
 
@@ -23,7 +22,7 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
 
   bool isShowError = false;
 
-  final _otpPinFieldKey = GlobalKey<OtpPinFieldState>();
+ static final _otpPinFieldKey = GlobalKey<OtpPinFieldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +62,7 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
               constraints: const BoxConstraints(maxWidth: 350),
               child: CustomTextWidget(
                 data: pageTitleDescription,
-                fontSize: 14.sp,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: ConstantColors.grey,
               ),
@@ -76,7 +75,6 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
             padding: const EdgeInsets.only(top: 84, left: 16),
             child: OtpPinField(
               key: _otpPinFieldKey,
-              autoFillEnable: false,
               textInputAction: TextInputAction.done,
               onSubmit: (text) {
                 setState(() {
@@ -114,15 +112,15 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
           Visibility(
             visible: isShowError &&
                 (_otpPinFieldKey.currentState?.text.length ?? 0) != 4,
-            child: Padding(
-              padding: const EdgeInsets.only(
+            child: const Padding(
+              padding: EdgeInsets.only(
                 top: 15,
                 left: 16,
               ),
               child: CustomTextWidget(
                 data: Constants.mPinError,
                 color: ConstantColors.red,
-                fontSize: 12.sp,
+                fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -136,7 +134,7 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
                 horizontal: 16, vertical: !isConfirmPage ? 0 : 35),
             child: Container(
               width: double.infinity,
-              height: 48.h,
+              height: 48,
               decoration: BoxDecoration(
                 color: (_otpPinFieldKey.currentState?.text.length ?? 0) >= 4
                     ? Colors.orange
@@ -159,8 +157,9 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
                                           const SetupSuccessfulScreen()));*/
+                               // Navigator.popAndPushNamed(context, AppPaths.setupSuccessful);
 
-                                Navigator.popAndPushNamed(context, AppPaths.setupSuccessful);
+                              context.goNamed(AppRoutes.getLoginSuccess.name);
 
                             } else {
                               print("error");
@@ -172,9 +171,9 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
                         });
                       }
                     : null,
-                child: Text(
+                child: const Text(
                   Constants.confirm,
-                  style: TextStyle(fontSize: 14.sp, color: Colors.white),
+                  style: TextStyle(fontSize: 14, color: Colors.white),
                 ),
               ),
             ),

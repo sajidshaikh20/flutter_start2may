@@ -28,7 +28,6 @@ class _OtpScreenState extends State<OtpScreen> {
 
     final phoneNumber = ModalRoute.of(context)?.settings.arguments;
 
-    print(phoneNumber);
 
     return Scaffold(
       appBar: AppBar(
@@ -137,7 +136,7 @@ class _OtpScreenState extends State<OtpScreen> {
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                print('Terms & conditions clicked');
+                                print('Resend');
                               })
                         : TextSpan(
                             text: '00.$_secondsRemaining sec',
@@ -169,8 +168,9 @@ class _OtpScreenState extends State<OtpScreen> {
                        /* Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
                                 const VerifiedScreen()));*/
+                       // Navigator.popAndPushNamed(context, AppPaths.verified);
+                  context.pushNamed(AppRoutes.getLoginVerified.name);
 
-                        Navigator.popAndPushNamed(context, AppPaths.verified);
 
                 }
                     : null,

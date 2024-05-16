@@ -1,11 +1,7 @@
-import 'package:flutter_start2may/navigation/app_paths.dart';
-
 import '../../../utils/exports.dart';
 
-class LoginScreen extends StatefulWidget with WidgetsBindingObserver {
-  final String? data;
-
-  LoginScreen({super.key, this.data});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -14,32 +10,17 @@ class LoginScreen extends StatefulWidget with WidgetsBindingObserver {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController phoneController = TextEditingController();
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  static final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     print(" inint");
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    print(" didChangeDependencies");
-  }
-
-  @override
   Widget build(BuildContext context) {
     print(" build");
-
-    final arguments = ModalRoute.of(context)?.settings.arguments;
-
-    print(arguments);
-
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -50,15 +31,12 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 300.w),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 35, left: 16),
-              child: CustomTextWidget(
-                data: Constants.getQuick,
-                fontSize: 24.sp,
-                fontWeight: FontWeight.w600,
-              ),
+          const Padding(
+            padding: EdgeInsets.only(top: 35, left: 16),
+            child: CustomTextWidget(
+              data: Constants.getQuick,
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
             ),
           ),
           Padding(
@@ -66,53 +44,52 @@ class _LoginScreenState extends State<LoginScreen> {
               top: 12,
               left: 16,
             ),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 350),
-              child: CustomTextWidget(
-                data: Constants.signUp,
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w500,
-                color: ConstantColors.grey,
-              ),
+            child: const CustomTextWidget(
+              data: Constants.signUp,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: ConstantColors.grey,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 60, left: 16, right: 16),
-            child: TextFormField(
-                controller: phoneController,
-                key: _formKey,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  LengthLimitingTextInputFormatter(10),
-                ],
-                onChanged: (value) {
-                  setState(() {
-                    _formKey.currentState?.validate();
-                  });
-                },
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please return Phone Number";
-                  } else if (!isContactNumberValidate(value)) {
-                    return "Please enter a valid Phone Number";
-                  }
-                  return null;
-                },
-                cursorColor: ConstantColors.blueBorder,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelStyle: const TextStyle(
-                    color: ConstantColors.blueBorder,
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        color: ConstantColors.blueBorder, width: 2.0),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  labelText: Constants.mobileNumber,
-                  hintText: Constants.enterMobileNumber,
-                )),
+            child: Form(
+              key: _formKey,
+              child: TextFormField(
+                  controller: phoneController,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(10),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      _formKey.currentState?.validate();
+                    });
+                  },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please return Phone Number";
+                    } else if (!isContactNumberValidate(value)) {
+                      return "Please enter a valid Phone Number";
+                    }
+                    return null;
+                  },
+                  cursorColor: ConstantColors.blueBorder,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelStyle: const TextStyle(
+                      color: ConstantColors.blueBorder,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: ConstantColors.blueBorder, width: 2.0),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    labelText: Constants.mobileNumber,
+                    hintText: Constants.enterMobileNumber,
+                  )),
+            ),
           ),
           Padding(
               padding: const EdgeInsets.only(top: 15, left: 16, right: 150),
@@ -155,7 +132,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         /*Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
                                 OtpScreen(phoneNumber: phoneController.text)));*/
-                  Navigator.popAndPushNamed(context, AppPaths.otp, arguments: phoneController.text);
+                        // Navigator.popAndPushNamed(context, AppRoutes.getLoginOtp.name, arguments: phoneController.text);
+                        context.goNamed(
+                          AppRoutes.getLoginOtp.path,
+                        );
                       }
                     : null,
                 child: const Text(
