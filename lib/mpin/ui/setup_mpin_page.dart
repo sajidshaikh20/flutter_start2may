@@ -158,8 +158,9 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
                                       builder: (BuildContext context) =>
                                           const SetupSuccessfulScreen()));*/
                                // Navigator.popAndPushNamed(context, AppPaths.setupSuccessful);
+                              //context.goNamed(AppRoutes.getLoginSuccess.name);
 
-                              context.goNamed(AppRoutes.getLoginSuccess.name);
+                              Get.off(const SetupSuccessfulScreen());
 
                             } else {
                               print("error");

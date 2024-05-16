@@ -1,5 +1,6 @@
+import 'package:flutter_start2may/service/navigation/app_routes_config.dart';
+
 import '../../../utils/exports.dart';
-import 'navigation/app_routes_config.dart';
 
 void main() {
   /*This method seperate form this project just i am practicing the go router*/
@@ -13,18 +14,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      routerConfig: myAppRouter(),
-      /* initialRoute: '/login',
-      routes: {
-        '/login': (context) =>  LoginScreen(),
-    },*/
+      initialRoute: '/',
+      home: const Splash(),
     );
   }
 }

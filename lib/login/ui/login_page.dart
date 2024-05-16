@@ -39,12 +39,12 @@ class _LoginScreenState extends State<LoginScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
+          const Padding(
+            padding: EdgeInsets.only(
               top: 12,
               left: 16,
             ),
-            child: const CustomTextWidget(
+            child: CustomTextWidget(
               data: Constants.signUp,
               fontSize: 14,
               fontWeight: FontWeight.w500,
@@ -133,10 +133,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             builder: (BuildContext context) =>
                                 OtpScreen(phoneNumber: phoneController.text)));*/
                         // Navigator.popAndPushNamed(context, AppRoutes.getLoginOtp.name, arguments: phoneController.text);
-                        context.goNamed(
+                        /*context.goNamed(
                           AppRoutes.getLoginOtp.path,
-                        );
-                      }
+                        );*/
+                  Get.off(const OtpScreen());
+                }
                     : null,
                 child: const Text(
                   Constants.verify,

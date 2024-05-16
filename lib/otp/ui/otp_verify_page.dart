@@ -169,7 +169,8 @@ class _OtpScreenState extends State<OtpScreen> {
                             builder: (BuildContext context) =>
                                 const VerifiedScreen()));*/
                        // Navigator.popAndPushNamed(context, AppPaths.verified);
-                  context.pushNamed(AppRoutes.getLoginVerified.name);
+                  //context.pushNamed(AppRoutes.getLoginVerified.name);
+                  Get.off(const VerifiedScreen());
 
 
                 }

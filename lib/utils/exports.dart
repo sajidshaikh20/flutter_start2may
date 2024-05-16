@@ -12,7 +12,11 @@ export '../../utils/common_title.dart';
 export 'package:flutter_svg/svg.dart';
 export 'package:flutter_start2may/mpin/ui/setup_mpin_page.dart';
 export 'package:go_router/go_router.dart';
-export 'package:flutter_start2may/navigation/app_routes_constants.dart';
+export 'package:flutter_start2may/service/navigation/app_routes_constants.dart';
+export 'package:get/get_navigation/src/root/get_material_app.dart';
+export 'package:get/get.dart';
+export 'package:get/get_core/src/get_main.dart';
+
 
 
 export '../login/login.dart';

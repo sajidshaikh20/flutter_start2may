@@ -20,7 +20,9 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       print('Three second has passed.');
     //  Navigator.popAndPushNamed(context, AppPaths.setupMpin);
-      context.goNamed(AppRoutes.getLoginPinSetup.name);
+     // context.goNamed(AppRoutes.getLoginPinSetup.name);
+
+      Get.off(const SetupMpinScreen());
 
     });
   }

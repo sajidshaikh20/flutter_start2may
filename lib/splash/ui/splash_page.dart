@@ -9,6 +9,7 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   late Future<void> _navigationFuture;
+
   @override
   void initState() {
     super.initState();
@@ -17,8 +18,11 @@ class _SplashState extends State<Splash> {
 
   Future<void> _navigateAfterDelay() async {
     await Future.delayed(const Duration(seconds: 3));
-    context.goNamed(AppRoutes.rootLoginRoute.name);
-      //GoRouter.of(context).goNamed(AppRoutes.rootLoginRoute.name);
+
+    Get.off(const LoginScreen());
+
+    //context.goNamed(AppRoutes.rootLoginRoute.name);
+    //GoRouter.of(context).goNamed(AppRoutes.rootLoginRoute.name);
   }
 
   @override
