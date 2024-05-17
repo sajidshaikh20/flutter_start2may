@@ -1,9 +1,9 @@
-import 'package:flutter_start2may/service/navigation/app_routes_config.dart';
+
 
 import '../../../utils/exports.dart';
 
 void main() {
-  /*This method seperate form this project just i am practicing the go router*/
+  /*This method Seperate form this project just i am practicing the go router*/
   //runApp(const GoRouterApp());
   runApp(const MyApp());
 }
@@ -20,8 +20,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/',
-      home: const Splash(),
+      initialRoute: AppPaths.initial,
+      getPages: AppPages.routes,
+      useInheritedMediaQuery: true,
     );
   }
 }

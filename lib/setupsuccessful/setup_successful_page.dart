@@ -8,7 +8,7 @@ class SetupSuccessfulScreen extends StatelessWidget {
     Future.delayed(const Duration(seconds: 3), () {
       print('Three second has passed.');
       //Navigator.popAndPushNamed(context, AppPaths.home);
-      // context.goNamed(AppRoutes.getHome.name);
+      //context.goNamed(AppRoutes.getHome.name);
       Get.offAll(const MyHome());
     });
 
