@@ -1,4 +1,6 @@
-import 'package:flutter_start2may/splash/controller/splash_controller.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+
 import '../../../utils/exports.dart';
 
 class Splash extends StatefulWidget {
@@ -9,10 +11,9 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-
   late Future<void> _navigationFuture;
 
-  final SplashController controller = Get.put(SplashController());
+  final SplashController controller = Get.find<SplashController>();
 
   @override
   void initState() {
@@ -22,7 +23,14 @@ class _SplashState extends State<Splash> {
 
   Future<void> _navigateAfterDelay() async {
     await Future.delayed(const Duration(seconds: 3));
-    Get.off(const LoginScreen());
+
+    var data = {"email": "test@gmail.com", "message": "hi!"};
+    /* Get.off(const LoginScreen(),
+      transition: Transition.rightToLeft,
+
+    );*/
+    Get.toNamed(AppPaths.login, parameters: data);
+
     //context.goNamed(AppRoutes.rootLoginRoute.name);
     //GoRouter.of(context).goNamed(AppRoutes.rootLoginRoute.name);
   }
@@ -38,18 +46,17 @@ class _SplashState extends State<Splash> {
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: Obx(() {
-                return Text(
-                  controller.counter.string, style: TextStyle(fontSize: 30));
-              })
-          )
+                return Text(controller.counter.string,
+                    style: const TextStyle(fontSize: 30));
+              }))
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Text("add"),
         backgroundColor: Colors.blue,
         onPressed: () {
-          controller.increamentCounter();
+          controller.incrementCounter();
         },
+        child: const Text("add"),
       ),
     );
   }

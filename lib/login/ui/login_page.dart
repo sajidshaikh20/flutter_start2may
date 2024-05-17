@@ -11,6 +11,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController phoneController = TextEditingController();
 
   static final _formKey = GlobalKey<FormState>();
+  final argument = Get.arguments;
 
   @override
   void initState() {
@@ -21,6 +22,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     print(" build");
+    var parameters = Get.parameters;
+    var email = parameters['email'];
+    var message = parameters['message'];
+    print("$email + $message");
 
     return Scaffold(
       appBar: AppBar(
@@ -136,8 +141,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         /*context.goNamed(
                           AppRoutes.getLoginOtp.path,
                         );*/
-                  Get.off(const OtpScreen());
-                }
+                        Get.to(const OtpScreen());
+                      }
                     : null,
                 child: const Text(
                   Constants.verify,

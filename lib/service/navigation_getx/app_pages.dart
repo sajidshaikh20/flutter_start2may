@@ -6,5 +6,7 @@ class AppPages {
 
   static final routes = <GetPage>[
     ...SplashRoutes.routes,
+    ...LoginRoutes.routes,
+    ...HomeRoutes.routes,
   ];
 }

@@ -1,13 +1,10 @@
-import 'package:flutter_start2may/utils/exports.dart';
+import 'package:get/get.dart';
 
-class SplashController extends GetxController{
+class SplashController extends GetxController {
+  final counter = 0.obs;
 
-  final  counter = 0.obs;
-
-
-  increamentCounter(){
+  incrementCounter() {
     counter.value++;
     print(counter);
   }
-
 }

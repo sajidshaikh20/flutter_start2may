@@ -19,6 +19,9 @@ export 'package:get/get_core/src/get_main.dart';
 export 'package:flutter_start2may/service/navigation/app_routes_config.dart';
 export 'package:flutter_start2may/service/navigation_getx/app_pages.dart';
 export 'package:flutter_start2may/service/navigation_getx/app_paths.dart';
+export 'package:flutter_start2may/splash//controller/splash_controller.dart';
+
+
 
 
 

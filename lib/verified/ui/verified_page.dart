@@ -24,6 +24,7 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
 
       Get.off(const SetupMpinScreen());
 
+
     });
   }
 
