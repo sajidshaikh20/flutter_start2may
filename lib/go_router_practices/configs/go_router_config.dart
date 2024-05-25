@@ -1,12 +1,13 @@
 import 'package:flutter_start2may/go_router_practices/configs/routes_constant.dart';
+import 'package:flutter_start2may/go_router_practices/screens/get_started_screen.dart';
+import 'package:flutter_start2may/go_router_practices/screens/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
-import '../screens/get_started_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/sign_in_screen.dart';
-import '../screens/splash_screen.dart';
 import '../screens/user_detail_screen.dart';
 import '../screens/users_screen.dart';
+
 
 
 GoRouter provideGoRouter() {

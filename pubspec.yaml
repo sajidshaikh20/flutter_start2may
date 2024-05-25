@@ -44,6 +44,7 @@ dependencies:
   go_router: ^14.1.1
   get: ^4.6.6
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,6 +73,7 @@ flutter:
     - assets/images/
     - assets/images/outline.png
     - assets/images/dissolve.png
+    - assets/svg/
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

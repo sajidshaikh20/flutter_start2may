@@ -1,3 +1,5 @@
+import 'package:flutter_start2may/dashboard/ui/dashboard.dart';
+
 import '../../../utils/exports.dart';
 
 class SetupSuccessfulScreen extends StatelessWidget {
@@ -6,16 +8,19 @@ class SetupSuccessfulScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-      print('Three second has passed.');
+
       //Navigator.popAndPushNamed(context, AppPaths.home);
       //context.goNamed(AppRoutes.getHome.name);
-      Get.offAll(const MyHome());
-    });
 
+      Get.offAll(  const DashboardPage());
+    });
     return Scaffold(
         appBar: AppBar(
           title: const WelcomeRow(),
           centerTitle: true,
+          iconTheme:const IconThemeData(
+            color: Colors.white, // Change this to your desired color
+          ),
           backgroundColor: ConstantColors.blue,
         ),
         body: Column(

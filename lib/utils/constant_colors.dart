@@ -23,6 +23,14 @@ import 'dart:ui';
   static const gradientBlueEnd = Color(0xFF4955B6);
 
 
+  /// Used for focused state
+  static const activeOrangeColor = Color(0xFFF26F21);
+
+  /// Used for unfocused state
+  static const inActiveGrayColor =  Color(0xFF959595);
+
+
+
 
 
   }

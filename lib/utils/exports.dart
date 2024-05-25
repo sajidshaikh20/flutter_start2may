@@ -20,6 +20,12 @@ export 'package:flutter_start2may/service/navigation/app_routes_config.dart';
 export 'package:flutter_start2may/service/navigation_getx/app_pages.dart';
 export 'package:flutter_start2may/service/navigation_getx/app_paths.dart';
 export 'package:flutter_start2may/splash//controller/splash_controller.dart';
+export 'package:flutter_start2may/otp/controller/otp_controller.dart';
+export 'package:flutter_start2may/go_router_practices/configs/routes_constant.dart';
+export 'package:flutter_start2may/dashboard/ui/widget/bottom_navigation_widget.dart';
+export 'package:flutter_start2may/profile/ui/profile_page.dart';
+export 'package:flutter_start2may/reward/ui/reward_page.dart';
+export 'package:sizer/sizer.dart';
 
 
 
@@ -31,3 +37,4 @@ export '../otp/otp.dart';
 export '../splash/splash.dart';
 export '../verified/verified.dart';
 export '../setupsuccessful/setup_successful_page.dart';
+export '../dashboard/dashboard.dart';

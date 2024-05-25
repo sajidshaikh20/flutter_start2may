@@ -10,7 +10,7 @@ GoRouter myAppRouter() {
     GoRoute(
       name: AppRoutes.rootLoginRoute.name,
       path: AppRoutes.rootLoginRoute.path,
-      builder: (context, state) => const LoginScreen(),
+      builder: (context, state) =>  const LoginScreen(),
       routes: [
         GoRoute(
           name: AppRoutes.getLoginOtp.name,

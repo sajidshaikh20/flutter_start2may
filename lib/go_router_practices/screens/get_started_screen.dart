@@ -1,5 +1,5 @@
 import '../../utils/exports.dart';
-import '../configs/routes_constant.dart';
+
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});

@@ -21,10 +21,7 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
       print('Three second has passed.');
     //  Navigator.popAndPushNamed(context, AppPaths.setupMpin);
      // context.goNamed(AppRoutes.getLoginPinSetup.name);
-
       Get.off(const SetupMpinScreen());
-
-
     });
   }
 
@@ -33,6 +30,9 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const WelcomeRow(),
+          iconTheme:const IconThemeData(
+            color: Colors.white, // Change this to your desired color
+          ),
           centerTitle: true,
           backgroundColor: ConstantColors.blue,
         ),

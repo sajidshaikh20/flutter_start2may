@@ -36,6 +36,9 @@ class _SetupMpinScreenState extends State<SetupMpinScreen> {
       appBar: AppBar(
         title: const WelcomeRow(),
         centerTitle: true,
+        iconTheme:const IconThemeData(
+          color: Colors.white, // Change this to your desired color
+        ),
         backgroundColor: ConstantColors.blue,
       ),
       body: Column(

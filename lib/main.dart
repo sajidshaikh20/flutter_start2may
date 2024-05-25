@@ -5,6 +5,8 @@ import '../../../utils/exports.dart';
 void main() {
   /*This method Seperate form this project just i am practicing the go router*/
   //runApp(const GoRouterApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  Get.put(DashboardController());
   runApp(const MyApp());
 }
 
@@ -14,15 +16,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      initialRoute: AppPaths.initial,
-      getPages: AppPages.routes,
-      useInheritedMediaQuery: true,
+    return  Sizer(
+      builder: (context, orientation, deviceType) {
+        return  GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          initialRoute: AppPaths.initial,
+          getPages: AppPages.routes,
+          useInheritedMediaQuery: true,
+        );
+      },
     );
+
+
+
   }
 }

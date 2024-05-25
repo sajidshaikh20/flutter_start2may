@@ -1,5 +1,3 @@
-import 'package:get/get.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 
 import '../../../utils/exports.dart';
 
@@ -11,9 +9,10 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  late Future<void> _navigationFuture;
 
   final SplashController controller = Get.find<SplashController>();
+
+  late Future<void> _navigationFuture;
 
   @override
   void initState() {
@@ -25,12 +24,13 @@ class _SplashState extends State<Splash> {
     await Future.delayed(const Duration(seconds: 3));
 
     var data = {"email": "test@gmail.com", "message": "hi!"};
-    /* Get.off(const LoginScreen(),
+
+
+    /*Get.off(const LoginScreen(),
       transition: Transition.rightToLeft,
-
     );*/
-    Get.toNamed(AppPaths.login, parameters: data);
 
+    Get.toNamed(AppPaths.login, parameters: data,arguments: data);
     //context.goNamed(AppRoutes.rootLoginRoute.name);
     //GoRouter.of(context).goNamed(AppRoutes.rootLoginRoute.name);
   }
@@ -42,7 +42,8 @@ class _SplashState extends State<Splash> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Image.asset("assets/images/Splash_logo.png")),
+          Center(child: Image.asset("assets/images/ic_splash_logo.png")
+          ),
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: Obx(() {

@@ -1,36 +1,34 @@
 import '../../../utils/exports.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends GetView<LoginController> {
+ const LoginScreen({super.key});
 
-  @override
+/*  @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+class _LoginScreenState extends State<LoginScreen> {*/
 
-class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController phoneController = TextEditingController();
+ // final LoginController controller = Get.find<LoginController>();
 
   static final _formKey = GlobalKey<FormState>();
-  final argument = Get.arguments;
-
-  @override
-  void initState() {
-    super.initState();
-    print(" inint");
-  }
 
   @override
   Widget build(BuildContext context) {
-    print(" build");
-    var parameters = Get.parameters;
-    var email = parameters['email'];
-    var message = parameters['message'];
+    print(" Login build method");
+
+    var emailByArguments = controller.parameters['email'];
+
+    print(emailByArguments);
+
+    var email = controller.parameters['email'];
+    var message = controller.parameters['message'];
     print("$email + $message");
 
     return Scaffold(
       appBar: AppBar(
         title: const WelcomeRow(),
         centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: ConstantColors.blue,
       ),
       body: Column(
@@ -38,10 +36,13 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           const Padding(
             padding: EdgeInsets.only(top: 35, left: 16),
-            child: CustomTextWidget(
-              data: Constants.getQuick,
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
+            child: FractionallySizedBox(
+              widthFactor: 0.7,
+              child: CustomTextWidget(
+                data: Constants.getQuick,
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           const Padding(
@@ -49,11 +50,19 @@ class _LoginScreenState extends State<LoginScreen> {
               top: 12,
               left: 16,
             ),
-            child: CustomTextWidget(
-              data: Constants.signUp,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: ConstantColors.grey,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 8, // 80% of the space
+                  child: CustomTextWidget(
+                    data: Constants.signUp,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: ConstantColors.grey,
+                  ),
+                ),
+                Spacer(flex: 2), // 30% of the space
+              ],
             ),
           ),
           Padding(
@@ -61,15 +70,14 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Form(
               key: _formKey,
               child: TextFormField(
-                  controller: phoneController,
+                  controller: controller.phoneController,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
                     LengthLimitingTextInputFormatter(10),
                   ],
                   onChanged: (value) {
-                    setState(() {
-                      _formKey.currentState?.validate();
-                    });
+                    _formKey.currentState?.validate();
+                    controller.phoneNumberListener();
                   },
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -120,59 +128,42 @@ class _LoginScreenState extends State<LoginScreen> {
           const Spacer(
             flex: 1,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
-            child: Container(
-              width: double.infinity,
-              height: 48,
-              decoration: BoxDecoration(
-                color: phoneController.text.length >= 10
-                    ? Colors.orange
-                    : Colors.grey,
-                borderRadius: BorderRadius.circular(8), //
-              ),
-              child: MaterialButton(
-                onPressed: phoneController.text.length >= 10
-                    ? () {
-                        /*Navigator.of(context).pushReplacement(MaterialPageRoute(
+          Obx(() {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+              child: Container(
+                width: double.infinity,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: controller.phoneNumber.toString().length >= 10
+                      ? Colors.orange
+                      : Colors.grey,
+                  borderRadius: BorderRadius.circular(8), //
+                ),
+                child: MaterialButton(
+                  onPressed: controller.phoneNumber.toString().length >= 10
+                      ? () {
+                          /*Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
                                 OtpScreen(phoneNumber: phoneController.text)));*/
-                        // Navigator.popAndPushNamed(context, AppRoutes.getLoginOtp.name, arguments: phoneController.text);
-                        /*context.goNamed(
+                          // Navigator.popAndPushNamed(context, AppRoutes.getLoginOtp.name, arguments: phoneController.text);
+                          /*context.goNamed(
                           AppRoutes.getLoginOtp.path,
                         );*/
-                        Get.to(const OtpScreen());
-                      }
-                    : null,
-                child: const Text(
-                  Constants.verify,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                          Get.to(const OtpScreen(),
+                              arguments: controller.phoneNumber.toString());
+                        }
+                      : null,
+                  child: const Text(
+                    Constants.verify,
+                    style: TextStyle(fontSize: 14, color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
-  }
-
-  @override
-  void didUpdateWidget(covariant LoginScreen oldWidget) {
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    print("sajid dispose");
-  }
-
-  @override
-  void deactivate() {
-    // TODO: implement deactivate
-    super.deactivate();
-    print(" deactivate");
   }
 }
