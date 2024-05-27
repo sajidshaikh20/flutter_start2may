@@ -1,5 +1,3 @@
-import 'package:flutter_start2may/dashboard/ui/dashboard.dart';
-import 'package:flutter_start2may/service/navigation_getx/app_paths.dart';
 
 import '../../../utils/exports.dart';
 

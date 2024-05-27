@@ -41,20 +41,19 @@ class CustomCardWidget extends GetView<HomeController> {
           Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 17, vertical: 21),
+                padding: const EdgeInsets.only(top: 21, left: 17),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextWidget(
                       data: Constants.plannedDreamCardTitle,
-                      fontSize: 10.sp,
+                      fontSize: 15.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
                     ),
                     CustomTextWidget(
                       data: Constants.plannedDreamCardDesc,
-                      fontSize: 12.sp,
+                      fontSize: 11.sp,
                       opacity: 0.6,
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -71,9 +70,9 @@ class CustomCardWidget extends GetView<HomeController> {
                                 11)), // Set border radius to zero
                           ),
                         ),
-                        child: const CustomTextWidget(
+                        child: CustomTextWidget(
                           data: Constants.viewEmiCalulater,
-                          fontSize: 14,
+                          fontSize: 11.sp,
                         ),
                       ),
                     ),
@@ -82,15 +81,16 @@ class CustomCardWidget extends GetView<HomeController> {
               ),
             ],
           ),
-          const Spacer(),
-          SvgPicture.asset(
-            'assets/svg/ic_calculater.svg',
-            height: 65.0,
-            width: 49.0,
+          Flexible(
+            flex: 2,
+            fit: FlexFit.tight,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: SvgPicture.asset(
+                'assets/svg/ic_calculater.svg',
+              ),
+            ),
           ),
-          const SizedBox(
-            width: 25,
-          )
         ],
       ),
     );

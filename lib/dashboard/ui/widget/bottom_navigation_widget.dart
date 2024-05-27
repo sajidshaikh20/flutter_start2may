@@ -1,7 +1,6 @@
 import '../../../utils/exports.dart';
 
 class BottomNavigationWidget extends GetView<DashboardController> {
-
   //final DashboardController controller;
 
   const BottomNavigationWidget({super.key});
@@ -16,6 +15,8 @@ class BottomNavigationWidget extends GetView<DashboardController> {
         height: 10.h,
         width: double.infinity,
         child: BottomNavigationBar(
+
+          backgroundColor: Colors.white,
           iconSize: 20,
           items: controller.navigationItems,
           onTap: (index) {
@@ -23,10 +24,10 @@ class BottomNavigationWidget extends GetView<DashboardController> {
           },
           selectedItemColor: ConstantColors.activeOrangeColor,
           selectedLabelStyle: GoogleFonts.inter(
-            fontSize: 10,
+            fontSize: 10.sp,
             fontWeight: FontWeight.bold,
           ),
-          elevation: 1,
+          elevation: 15,
           currentIndex: controller.selectedIndex.value,
         ),
       ),

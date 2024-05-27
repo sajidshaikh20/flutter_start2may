@@ -1,6 +1,6 @@
-import 'package:flutter_start2may/utils/exports.dart';
+import '../../utils/exports.dart';
 
-class HomeController extends GetxController{
-
-
+class HomeController extends GetxController {
+  var pageLength = 3;
+  var currentIndex = 0.obs;
 }

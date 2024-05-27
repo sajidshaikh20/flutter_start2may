@@ -1,4 +1,3 @@
-import 'package:flutter_start2may/dashboard/controllers/dashboard_controller.dart';
 
 import '../../utils/exports.dart';
 
@@ -48,7 +47,9 @@ class DashboardPage extends GetView<DashboardController> {
           ],
         ),
       ),
-     bottomNavigationBar:  BottomNavigationWidget(/*controller: controller*/),
+     bottomNavigationBar:  const BottomNavigationWidget(/*controller: controller*/
+
+     ),
     );
   }
 }

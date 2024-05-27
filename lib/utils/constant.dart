@@ -44,6 +44,8 @@ class Constants {
   static const String  plannedDreamCardTitle  = "Planned your dream house?";
   static const String  plannedDreamCardDesc  = "Calculate your home loan EMI now";
   static const String  viewEmiCalulater  = "View EMI Calculator";
+  static const String  loanOfferTitleHome  = "Our loan offerings";
+  static const String  loanFeesTitle  = "Get at 0.5% fees";
 
 
 

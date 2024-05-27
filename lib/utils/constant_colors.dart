@@ -28,6 +28,9 @@ import 'dart:ui';
 
   /// Used for unfocused state
   static const inActiveGrayColor =  Color(0xFF959595);
+  static const indicatorColor =  Color(0xFF74749B);
+  static const lightOrange =  Color(0xFFFAE9E2);
+  static const orangeText =  Color(0xFFDE622E);
 
 
 

@@ -1,5 +1,6 @@
 import 'package:flutter_start2may/dashboard/binding/dashboard_bindings.dart';
 import 'package:flutter_start2may/dashboard/ui/dashboard.dart';
+import 'package:flutter_start2may/home/bindings/home_binding.dart';
 
 import '../../utils/exports.dart';
 
@@ -60,6 +61,9 @@ class DashboardRoutes {
         page: () => const DashboardPage(),
         participatesInRootNavigator: true,
         preventDuplicates: true,
+        bindings: [
+          HomeBinding()
+        ],
         children: [
           ...HomeRoutes.routes,
           ...RewardsRoutes.routes,
@@ -75,6 +79,7 @@ class HomeRoutes {
   static final routes = [
     GetPage(
       name: AppPaths.home,
+
       page: () => const MyHome(),
     ),
   ];
