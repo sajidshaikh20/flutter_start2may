@@ -1,4 +1,3 @@
-
 import '../../utils/exports.dart';
 
 class DashboardController extends GetxController {
@@ -30,7 +29,7 @@ class DashboardController extends GetxController {
         activeIcon: SvgPicture.asset(
             'assets/svg/ic_bottom_inactive_profiles.svg',
             colorFilter:
-                const ColorFilter.mode(Colors.deepOrange, BlendMode.srcIn))),
+              const ColorFilter.mode(Colors.deepOrange, BlendMode.srcIn))),
   ];
 
   onItemClick(int tappedIndex) {

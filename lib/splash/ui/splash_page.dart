@@ -42,7 +42,7 @@ class _SplashState extends State<Splash> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Image.asset("assets/images/ic_splash_logo.png")
+            Center(child: Image.asset("assets/images/ic_splash_logo.png")
           ),
           Padding(
               padding: const EdgeInsets.all(8.0),

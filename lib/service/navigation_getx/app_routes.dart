@@ -50,15 +50,14 @@ class LoginRoutes {
   ];
 }
 
-
 class DashboardRoutes {
   DashboardRoutes._();
 
   static final routes = [
     GetPage(
-        binding: DashboardBindings(),
         name: AppPaths.dashboard,
-        page: () =>  const DashboardPage(),
+        binding: DashboardBindings(),
+        page: () => const DashboardPage(),
         participatesInRootNavigator: true,
         preventDuplicates: true,
         children: [
@@ -70,19 +69,20 @@ class DashboardRoutes {
   ];
 }
 
-
 class HomeRoutes {
   HomeRoutes._();
+
   static final routes = [
     GetPage(
       name: AppPaths.home,
       page: () => const MyHome(),
     ),
   ];
-
 }
+
 class RewardsRoutes {
   RewardsRoutes._();
+
   static final routes = [
     GetPage(
       name: AppPaths.rewards,
@@ -90,6 +90,7 @@ class RewardsRoutes {
     ),
   ];
 }
+
 class ProfileRoutes {
   ProfileRoutes._();
 
@@ -100,4 +101,3 @@ class ProfileRoutes {
     ),
   ];
 }
-

@@ -41,5 +41,10 @@ class Constants {
   static const String  mPinError  = "M-Pin does not match";
   static const String  setupSuccessful  = "Setup Successful";
   static const String  setupSuccessfulTitle  = "Your mPIN has been set successfully";
+  static const String  plannedDreamCardTitle  = "Planned your dream house?";
+  static const String  plannedDreamCardDesc  = "Calculate your home loan EMI now";
+  static const String  viewEmiCalulater  = "View EMI Calculator";
+
+
 
 }

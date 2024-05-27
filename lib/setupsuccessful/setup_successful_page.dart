@@ -1,4 +1,5 @@
 import 'package:flutter_start2may/dashboard/ui/dashboard.dart';
+import 'package:flutter_start2may/service/navigation_getx/app_paths.dart';
 
 import '../../../utils/exports.dart';
 
@@ -8,17 +9,13 @@ class SetupSuccessfulScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-
-      //Navigator.popAndPushNamed(context, AppPaths.home);
-      //context.goNamed(AppRoutes.getHome.name);
-
-      Get.offAll(  const DashboardPage());
+      Get.offAllNamed(AppPaths.dashboard);
     });
     return Scaffold(
         appBar: AppBar(
           title: const WelcomeRow(),
           centerTitle: true,
-          iconTheme:const IconThemeData(
+          iconTheme: const IconThemeData(
             color: Colors.white, // Change this to your desired color
           ),
           backgroundColor: ConstantColors.blue,

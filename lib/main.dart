@@ -1,12 +1,8 @@
-
-
 import '../../../utils/exports.dart';
 
 void main() {
   /*This method Seperate form this project just i am practicing the go router*/
   //runApp(const GoRouterApp());
-  WidgetsFlutterBinding.ensureInitialized();
-  Get.put(DashboardController());
   runApp(const MyApp());
 }
 
@@ -16,9 +12,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  Sizer(
+    return Sizer(
       builder: (context, orientation, deviceType) {
-        return  GetMaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -30,8 +26,5 @@ class MyApp extends StatelessWidget {
         );
       },
     );
-
-
-
   }
 }

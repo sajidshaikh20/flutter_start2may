@@ -8,61 +8,18 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
-  var userList = List<Userdata>.empty(growable: true);
+  var userList = [];
 
   @override
   Widget build(BuildContext context) {
     userData();
-
-    return Scaffold(
+    return const Scaffold(
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 146,
-                    width: 328,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomRight,
-                          end: Alignment.topLeft,
-                          colors: [
-                            ConstantColors.gradientBlueStart,
-                            ConstantColors.gradientBlueEnd
-                          ],
-                          stops: [0.007, 1],
-                        ),
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(20))),
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Image.asset(
-                          "assets/images/dissolve.png",
-                          fit: BoxFit.cover,
-                          height: double.infinity,
-                          width: double.infinity,
-                        ),
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("sajid"),
-                            Text("sajsid"),
-                            Text("sajid"),
-                            Text("sajid"),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ));
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [CustomCardWidget()],
+      ),
+    ));
   }
 
   void userData() {
