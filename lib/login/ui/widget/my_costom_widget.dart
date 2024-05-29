@@ -8,6 +8,7 @@ class CustomTextWidget extends StatelessWidget {
   final TextAlign? textAlign;
   final double? opacity;
 
+
   const CustomTextWidget({
     super.key,
     required this.data,

@@ -22,13 +22,13 @@ class CustomCardWidget extends GetView<HomeController> {
       width: double.infinity,
       decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft,
+            begin: Alignment.topLeft,
+            end: Alignment.topRight,
+
             colors: [
+              ConstantColors.gradientBlueEnd,
               ConstantColors.gradientBlueStart,
-              ConstantColors.gradientBlueEnd
             ],
-            stops: [0.007, 1],
           ),
           image: DecorationImage(
               image: AssetImage(

@@ -9,6 +9,7 @@ class MyHome extends StatefulWidget {
 
 class _MyHomeState extends State<MyHome> {
   final HomeController controller = Get.find<HomeController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,23 +53,28 @@ class _MyHomeState extends State<MyHome> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: SizedBox(
-                      height: 212.sp,
+                      height: 30.h,
+                      width: double.infinity,
                       child: GridView.builder(
-                        physics: const NeverScrollableScrollPhysics(
-                            parent: ScrollPhysics()),
-                        shrinkWrap: true,
-                        itemCount: 5,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: controller.loanWidgetList.length.toInt(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
                           crossAxisSpacing: 8,
+
                           mainAxisSpacing: 10,
                         ),
                         itemBuilder: (BuildContext context, int index) {
-                          return const LoanOffersCardWidget();
+                          return LoanOffersCardWidget(
+                              data: controller.loanWidgetList[index]);
                         },
                       )),
                 ),
+                const ExploreGoldCard(),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: CibilScoreWidget(),
+                )
               ],
             ),
           ),

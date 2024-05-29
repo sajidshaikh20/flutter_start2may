@@ -46,6 +46,12 @@ class Constants {
   static const String  viewEmiCalulater  = "View EMI Calculator";
   static const String  loanOfferTitleHome  = "Our loan offerings";
   static const String  loanFeesTitle  = "Get at 0.5% fees";
+  static const String  keepGoldSafeCardTitle  = "Keep your gold safe ";
+  static const String  getGoldSafeDesc  = "Get a locker as a IIFL Gold Member";
+  static const String  exploreLockers  = "Explore lockers";
+  static const String  getFreeCibitTitle  = "Get free CIBIL Score";
+  static const String  creditRepostDesc  = "Track and get instant credit report";
+  static const String  checkNow  = "Check Now";
 
 
 
