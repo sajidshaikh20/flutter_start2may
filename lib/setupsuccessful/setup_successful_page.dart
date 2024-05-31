@@ -1,4 +1,3 @@
-
 import '../../../utils/exports.dart';
 
 class SetupSuccessfulScreen extends StatelessWidget {

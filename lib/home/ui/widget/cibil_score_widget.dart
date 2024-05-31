@@ -52,10 +52,10 @@ class CibilScoreWidget extends GetView<HomeController> {
               ),
             ),
             const Spacer(),
-            const CibilGougeMeter(),
-            const SizedBox(
-              width: 30,
-            )
+            const Padding(
+              padding: EdgeInsets.only(right: 15),
+              child: CibilGougeMeter(),
+            ),
           ],
         ),
       ),

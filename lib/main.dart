@@ -1,15 +1,15 @@
 import '../../../utils/exports.dart';
 
-void main() {
-  /*This method Seperate form this project just i am practicing the go router*/
-  //runApp(const GoRouterApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  await SharedPref.init();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Sizer(

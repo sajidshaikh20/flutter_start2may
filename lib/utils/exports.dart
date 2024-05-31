@@ -2,7 +2,6 @@ export 'package:flutter/gestures.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 export 'package:google_fonts/google_fonts.dart';
-export 'dart:async';
 export 'package:flutter_start2may/utils/reg_expression.dart';
 export 'validation_utils.dart';
 export '../../utils/custom_toast.dart';
@@ -26,10 +25,8 @@ export 'package:flutter_start2may/dashboard/ui/widget/bottom_navigation_widget.d
 export 'package:flutter_start2may/profile/ui/profile_page.dart';
 export 'package:flutter_start2may/reward/ui/reward_page.dart';
 export 'package:sizer/sizer.dart';
-
-
-
-
+export 'package:flutter_start2may/service/shared_pref/shared_preference.dart';
+export 'package:get_storage/get_storage.dart';
 
 export '../login/login.dart';
 export '../home/home.dart';

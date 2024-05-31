@@ -1,7 +1,7 @@
 
 import 'exports.dart';
 
-class WelcomeRow extends StatelessWidget {
+class WelcomeRow extends GetView<DashboardController> {
   const WelcomeRow({super.key});
 
  // final String message;

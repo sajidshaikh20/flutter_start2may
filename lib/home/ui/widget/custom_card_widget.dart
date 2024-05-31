@@ -18,13 +18,11 @@ class CustomCardWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(10),
-      height: 20.h,
       width: double.infinity,
       decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.topRight,
-
             colors: [
               ConstantColors.gradientBlueEnd,
               ConstantColors.gradientBlueStart,

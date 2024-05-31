@@ -13,52 +13,53 @@ class LoanOffersCardWidget extends GetView<HomeController> {
       onTap: () {
         print(data.loanType);
       },
-      splashFactory: NoSplash.splashFactory,
       child: Card(
-        elevation: 1,
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(17)),
+        shadowColor: Colors.grey,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: const BorderSide(
+            color: ConstantColors.cardBoderColor,
+            width: 1,
           ),
-          child: Column(
-            children: [
-              Visibility(
-                visible: data.isDiscountVisible,
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                  decoration: const BoxDecoration(
-                    color: ConstantColors.lightOrange,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      topRight: Radius.circular(8),
-                    ),
+        ),
+        color: Colors.white,
+        child: Column(
+          children: [
+            Visibility(
+              visible: data.isDiscountVisible,
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                decoration: const BoxDecoration(
+                  color: ConstantColors.lightOrange,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12),
                   ),
-                  child: Center(
-                    child: CustomTextWidget(
-                      data: data.discountLabel,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500,
-                      color: ConstantColors.orangeText,
-                    ),
+                ),
+                child: Center(
+                  child: CustomTextWidget(
+                    data: data.discountLabel,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                    color: ConstantColors.orangeText,
                   ),
                 ),
               ),
-              SizedBox(height: data.isDiscountVisible ? 10 : 35),
-              SvgPicture.asset(
-                data.iconPath,
-                color: Colors.blue,
-              ),
-              const SizedBox(height: 10),
-              CustomTextWidget(
-                data: data.loanType,
-                fontSize: 10.sp,
-                opacity: 0.8,
-                fontWeight: FontWeight.w500,
-              ),
-            ],
-          ),
+            ),
+            SizedBox(height: data.isDiscountVisible ? 10 : 35),
+            SvgPicture.asset(
+              data.iconPath,
+              color: Colors.blue,
+            ),
+            const SizedBox(height: 10),
+            CustomTextWidget(
+              data: data.loanType,
+              fontSize: 10.sp,
+              opacity: 0.8,
+              fontWeight: FontWeight.w500,
+            ),
+          ],
         ),
       ),
     );

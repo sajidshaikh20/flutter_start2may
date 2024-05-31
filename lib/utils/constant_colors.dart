@@ -17,6 +17,7 @@ import 'dart:ui';
 
   static const grey = Color(0xFFB5B5B5);
   static const lightGrey = Color(0xFFE2E2E2);
+  static const cardBoderColor = Color(0xFFF3F5FF);
 
 
   static const orange = Color(0xFFDE622E);

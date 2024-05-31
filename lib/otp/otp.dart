@@ -4,3 +4,5 @@ export '../../utils/constant_colors.dart';
 export '../../utils/constant.dart';
 export 'package:flutter_start2may/login/bindings/login_binding.dart';
 export 'package:flutter_start2may/otp/binding/otp_binding.dart';
+export 'dart:async';
+

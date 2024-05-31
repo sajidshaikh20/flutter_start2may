@@ -7,15 +7,11 @@ class BottomNavigationWidget extends GetView<DashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    print("bottom navigation");
-    double screenHeight = MediaQuery.of(context).size.height;
-    double bottomNavHeight = screenHeight;
     return Obx(
       () => SizedBox(
         height: 10.h,
         width: double.infinity,
         child: BottomNavigationBar(
-
           backgroundColor: Colors.white,
           iconSize: 20,
           items: controller.navigationItems,

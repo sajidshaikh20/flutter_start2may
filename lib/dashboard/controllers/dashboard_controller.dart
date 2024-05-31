@@ -29,7 +29,7 @@ class DashboardController extends GetxController {
         activeIcon: SvgPicture.asset(
             'assets/svg/ic_bottom_inactive_profiles.svg',
             colorFilter:
-              const ColorFilter.mode(Colors.deepOrange, BlendMode.srcIn))),
+                const ColorFilter.mode(Colors.deepOrange, BlendMode.srcIn))),
   ];
 
   onItemClick(int tappedIndex) {
@@ -37,28 +37,24 @@ class DashboardController extends GetxController {
     switch (tappedIndex) {
       case 0:
         {
-          // path = AppPaths.home;
           selectedIndex.value = 0;
           print(tappedIndex);
           break;
         }
       case 1:
         {
-          // path = AppPaths.rewards;
           selectedIndex.value = 1;
-          print(tappedIndex);
+          SharedPref.setValue(PrefsKey.isLoggedIn, false);
           break;
         }
       case 2:
         {
-          //path = AppPaths.profile;
           selectedIndex.value = 2;
           print(tappedIndex);
           break;
         }
       default:
         {
-          //path = AppPaths.dashboard;
           selectedIndex.value = 0;
           break;
         }

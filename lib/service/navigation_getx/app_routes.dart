@@ -1,6 +1,7 @@
 import 'package:flutter_start2may/dashboard/binding/dashboard_bindings.dart';
 import 'package:flutter_start2may/dashboard/ui/dashboard.dart';
 import 'package:flutter_start2may/home/bindings/home_binding.dart';
+import 'package:flutter_start2may/middleware/route_auth_middleware.dart';
 
 import '../../utils/exports.dart';
 
@@ -12,6 +13,9 @@ class SplashRoutes {
       name: AppPaths.initial,
       page: () => const Splash(),
       binding: SplashBinding(),
+      middlewares: [
+        RouteAuthMiddleware()
+      ],
       participatesInRootNavigator: true,
       transitionDuration: const Duration(seconds: 1),
     ),
@@ -24,7 +28,7 @@ class LoginRoutes {
   static final routes = <GetPage>[
     GetPage(
       name: AppPaths.login,
-      page: () => const LoginScreen(),
+      page: () =>  const LoginScreen(),
       bindings: [
         LoginBinding(),
         OtpBinding(),
@@ -44,7 +48,7 @@ class LoginRoutes {
         ),
         GetPage(
           name: AppPaths.pinSetupSuccess,
-          page: () => const SetupSuccessfulScreen(),
+          page: () =>  const SetupSuccessfulScreen(),
         ),
       ],
     ),

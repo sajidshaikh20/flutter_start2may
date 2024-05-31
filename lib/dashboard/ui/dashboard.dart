@@ -1,4 +1,3 @@
-
 import '../../utils/exports.dart';
 
 class DashboardPage extends GetView<DashboardController> {
@@ -47,9 +46,7 @@ class DashboardPage extends GetView<DashboardController> {
           ],
         ),
       ),
-     bottomNavigationBar:  const BottomNavigationWidget(/*controller: controller*/
-
-     ),
+      bottomNavigationBar: const BottomNavigationWidget(),
     );
   }
 }

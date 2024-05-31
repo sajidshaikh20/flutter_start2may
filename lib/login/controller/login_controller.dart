@@ -15,5 +15,4 @@ class LoginController extends GetxController {
     super.onInit();
     print("getInit");
   }
-
 }

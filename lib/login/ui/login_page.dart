@@ -1,19 +1,21 @@
+
 import '../../../utils/exports.dart';
 
 class LoginScreen extends GetView<LoginController> {
- const LoginScreen({super.key});
+  const LoginScreen({super.key});
 
 /*  @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 class _LoginScreenState extends State<LoginScreen> {*/
 
- // final LoginController controller = Get.find<LoginController>();
+ // final DashboardController dashboardController = Get.find<DashboardController>();
 
   static final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    SharedPref.setValue(PrefsKey.isLoggedIn, true);
     print(" Login build method");
 
     var emailByArguments = controller.parameters['email'];

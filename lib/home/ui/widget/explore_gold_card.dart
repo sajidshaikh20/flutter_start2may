@@ -6,7 +6,7 @@ class ExploreGoldCard extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10),
+
       height: 20.h,
       width: double.infinity,
       decoration: const BoxDecoration(
@@ -72,9 +72,6 @@ class ExploreGoldCard extends GetView<HomeController> {
                   ),
                 ],
               ),
-              /*SvgPicture.asset(
-                'assets/svg/ic_explore_gold_fluent_vault.svg',
-              ),*/
             ],
           ),
           Positioned(
