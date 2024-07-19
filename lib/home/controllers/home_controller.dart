@@ -13,6 +13,7 @@ class HomeController extends GetxController {
 
 
   var loanWidgetList = <LoanModel>[];
+
   @override
   void onInit() {
     super.onInit();
@@ -26,6 +27,5 @@ class HomeController extends GetxController {
     loanWidgetList.add(LoanModel(false, "", 'assets/svg/ic_bussiness_loan.svg', "Bussiness Loan"));
     loanWidgetList.add(LoanModel(true, "", 'assets/svg/ic_home_loan.svg', "Home Loan"));
     loanWidgetList.add(LoanModel(false, "", 'assets/svg/ic_home_lap.svg', "Lap"));
-
   }
 }

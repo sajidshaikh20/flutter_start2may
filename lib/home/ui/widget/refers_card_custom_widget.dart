@@ -55,7 +55,8 @@ class RefersCardCustomWidget extends GetView<HomeController> {
                           },
                           style: ElevatedButton.styleFrom(
                             shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(11)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(11)),
                             ),
                           ),
                           child: CustomTextWidget(

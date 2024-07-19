@@ -1,5 +1,4 @@
 import 'package:flutter_start2may/home/model/loan_model.dart';
-
 import '../../../utils/exports.dart';
 
 class LoanOffersCardWidget extends GetView<HomeController> {

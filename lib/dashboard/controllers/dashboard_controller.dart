@@ -6,6 +6,7 @@ class DashboardController extends GetxController {
   var selectedIndex = 0.obs;
 
   List<BottomNavigationBarItem> navigationItems = [
+
     BottomNavigationBarItem(
       icon: SvgPicture.asset(
         'assets/svg/ic_bottom_inactive_home.svg',
