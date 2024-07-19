@@ -1,4 +1,5 @@
 import '../../../utils/exports.dart';
+import '../CustomPageView.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({super.key});
@@ -8,103 +9,107 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
-  var userList = List<Userdata>.empty(growable: true);
+  final HomeController controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
-    userData();
-
     return Scaffold(
-        appBar: AppBar(
-          title: RichText(
-            text: TextSpan(
-              text: "Hello, ",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400),
-              children: const [
-                TextSpan(
-                  text: "Rajesh Mehta",
-                  style: TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.none,
-                      fontWeight: FontWeight.w600),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                // Top Page View with Indicators
+                SizedBox(
+                  height: 21.h,
+                  child: CustomPageView(
+                    itemCount: controller.topPageLength,
+                    currentIndex: controller.topPagerIndex,
+                    viewportFraction: 0.9,
+                    itemBuilder: (_, __) => const CustomCardWidget(),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    controller.topPageLength,
+                    (index) => DotIndicator(
+                      index: index,
+                      currentIndex: controller.topPagerIndex,
+                    ),
+                  ),
+                ),
+
+                // Loan Offer Title
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12.0),
+                  child: CustomTextWidget(
+                    data: Constants.loanOfferTitleHome,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+
+                // Loan Offers Grid
+                Padding(
+                  padding: const EdgeInsets.only(top: 16,bottom: 35),
+                  child: SizedBox(
+                    height: 28.h,
+                    child: GridView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: controller.loanWidgetList.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemBuilder: (context, index) {
+                        return LoanOffersCardWidget(
+                          data: controller.loanWidgetList[index],
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                const ExploreGoldCard(),
+                const SizedBox(height: 36),
+                const CibilScoreWidget(),
+                const SizedBox(height: 36),
+                const RefersCardCustomWidget(),
+                // Additional Widgets
+
+                const SizedBox(height: 36),
+                // Bottom Page View with Indicators
+                SizedBox(
+                  height: 25.h,
+                  width: double.infinity,
+                  child: CustomPageView(
+                    itemCount: controller.accountOpenList,
+                    currentIndex: controller.bottomPagerIndex,
+                    itemBuilder: (_, __) => const OpenAccountCardWidget(),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    controller.accountOpenList,
+                    (index) => DotIndicator(
+                      index: index,
+                      currentIndex: controller.bottomPagerIndex,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: Icon(
-                Icons.notifications_none_outlined,
-                color: Colors.white,
-                size: 30,
-              ),
-            ),
-          ],
-          centerTitle: false,
-          backgroundColor: ConstantColors.blue,
         ),
-        body: SafeArea(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 146.h,
-                      width: 328.w,
-                      decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            begin: Alignment.bottomRight,
-                            end: Alignment.topLeft,
-                            colors: [
-                              ConstantColors.gradientBlueStart,
-                              ConstantColors.gradientBlueEnd
-                            ],
-                            stops: [0.007, 1],
-                          ),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(20.r))),
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          Image.asset(
-                            "assets/images/dissolve.png",
-                            fit: BoxFit.cover,
-                            height: double.infinity,
-                            width: double.infinity,
-                          ),
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("sajid"),
-                              Text("sajid"),
-                              Text("sajid"),
-                              Text("sajid"),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ));
-  }
-
-  void userData() {
-    userList.add(Userdata("sajiud", "sajid@gmail.com", 12));
-    userList.add(Userdata("bhuru", "sajid@gmail.com", 13));
-    userList.add(Userdata("khan", "bhuru@gmail.com", 14));
-    userList.add(Userdata("madha", "sajid@gmail.com", 15));
-    userList.add(Userdata("sajid", "sajid@gmail.com", 1));
+      ),
+    );
   }
 }

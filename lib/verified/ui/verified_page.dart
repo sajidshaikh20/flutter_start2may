@@ -1,5 +1,3 @@
-import 'package:flutter_start2may/navigation/app_paths.dart';
-
 import '../../utils/exports.dart';
 
 class VerifiedScreen extends StatefulWidget {
@@ -21,8 +19,9 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
 
     Future.delayed(const Duration(seconds: 3), () {
       print('Three second has passed.');
-      Navigator.popAndPushNamed(context, AppPaths.setupMpin);
-
+    //  Navigator.popAndPushNamed(context, AppPaths.setupMpin);
+     // context.goNamed(AppRoutes.getLoginPinSetup.name);
+      Get.off(const SetupMpinScreen());
     });
   }
 
@@ -31,6 +30,9 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const WelcomeRow(),
+          iconTheme:const IconThemeData(
+            color: Colors.white, // Change this to your desired color
+          ),
           centerTitle: true,
           backgroundColor: ConstantColors.blue,
         ),
@@ -58,19 +60,19 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
                 ],
               ),
             ),
-             Padding(
-              padding: const EdgeInsets.only(top: 40),
+             const Padding(
+              padding: EdgeInsets.only(top: 40),
               child: CustomTextWidget(
                 data: Constants.verified,
-                fontSize: 24.sp,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
               ),
             ),
-             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 35),
+             const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 35),
               child: CustomTextWidget(
                 data: Constants.verifiedSuccessfully,
-                fontSize: 16.sp,
+                fontSize: 16,
                 color: ConstantColors.grey,
                 fontWeight: FontWeight.w600,
                 textAlign: TextAlign.center,

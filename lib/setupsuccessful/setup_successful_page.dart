@@ -1,25 +1,20 @@
-
-import 'package:flutter_start2may/navigation/app_paths.dart';
-
 import '../../../utils/exports.dart';
 
 class SetupSuccessfulScreen extends StatelessWidget {
   const SetupSuccessfulScreen({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
-
     Future.delayed(const Duration(seconds: 3), () {
-      print('Three second has passed.');
-      Navigator.popAndPushNamed(context, AppPaths.home);
+      Get.offAllNamed(AppPaths.dashboard);
     });
-
     return Scaffold(
         appBar: AppBar(
           title: const WelcomeRow(),
           centerTitle: true,
+          iconTheme: const IconThemeData(
+            color: Colors.white, // Change this to your desired color
+          ),
           backgroundColor: ConstantColors.blue,
         ),
         body: Column(
@@ -46,24 +41,21 @@ class SetupSuccessfulScreen extends StatelessWidget {
                 ],
               ),
             ),
-             Padding(
-              padding: const EdgeInsets.only(top: 40),
+            const Padding(
+              padding: EdgeInsets.only(top: 40),
               child: CustomTextWidget(
                 data: Constants.setupSuccessful,
-                fontSize: 24.sp,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
               ),
             ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 35),
               child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minWidth: 182.w
-
-                ),
-                child: CustomTextWidget(
+                constraints: const BoxConstraints(minWidth: 182),
+                child: const CustomTextWidget(
                   data: Constants.setupSuccessfulTitle,
-                  fontSize: 16.sp,
+                  fontSize: 16,
                   color: ConstantColors.grey,
                   fontWeight: FontWeight.w500,
                   textAlign: TextAlign.center,

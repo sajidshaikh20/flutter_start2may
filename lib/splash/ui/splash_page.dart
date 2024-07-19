@@ -8,29 +8,55 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  final SplashController controller = Get.find<SplashController>();
+
+  late Future<void> _navigationFuture;
+
   @override
   void initState() {
     super.initState();
+    _navigationFuture = _navigateAfterDelay();
+  }
+
+  Future<void> _navigateAfterDelay() async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    var data = {"email": "test@gmail.com", "message": "hi!"};
+
+
+    Get.offNamed(AppPaths.login, parameters: data, arguments: data);
   }
 
   @override
   Widget build(BuildContext context) {
-    // GoRouter.of(context).go(AppPaths.login);
-
-    //GoRouter.of(context).pushNamed(MyAppRouteConstants.loginRouteName);
-
-    Future.delayed(const Duration(seconds: 3), () {
-      print('Three second has passed.');
-      Navigator.popAndPushNamed(context, '/login', arguments: "jsonObject");
-
-    });
+    print("buildmethod");
     return Scaffold(
-      body: Center(child: Image.asset("assets/images/Splash_logo.png")),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(child: Image.asset("assets/images/ic_splash_logo.png")),
+          Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Obx(() {
+                return Text(controller.counter.string,
+                    style: const TextStyle(fontSize: 30));
+              }))
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue,
+        onPressed: () {
+          controller.incrementCounter();
+        },
+        child: const Text("add"),
+      ),
     );
   }
 
   @override
   void dispose() {
+    _navigationFuture.ignore();
     super.dispose();
+    print("Splash screen dispose");
   }
 }

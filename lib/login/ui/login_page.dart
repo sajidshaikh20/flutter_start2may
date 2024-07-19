@@ -1,118 +1,110 @@
-import 'package:flutter_start2may/navigation/app_paths.dart';
 
 import '../../../utils/exports.dart';
 
-class LoginScreen extends StatefulWidget with WidgetsBindingObserver {
-  final String? data;
+class LoginScreen extends GetView<LoginController> {
+  const LoginScreen({super.key});
 
-  LoginScreen({super.key, this.data});
-
-  @override
+/*  @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+class _LoginScreenState extends State<LoginScreen> {*/
 
-class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController phoneController = TextEditingController();
+ // final DashboardController dashboardController = Get.find<DashboardController>();
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    print(" inint");
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    print(" didChangeDependencies");
-  }
+  static final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    print(" build");
+    SharedPref.setValue(PrefsKey.isLoggedIn, true);
+    print(" Login build method");
 
-    final arguments = ModalRoute.of(context)?.settings.arguments;
+    var emailByArguments = controller.parameters['email'];
 
-    print(arguments);
+    print(emailByArguments);
 
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    double screenHeight = MediaQuery.of(context).size.height;
+    var email = controller.parameters['email'];
+    var message = controller.parameters['message'];
+    print("$email + $message");
 
     return Scaffold(
       appBar: AppBar(
         title: const WelcomeRow(),
         centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: ConstantColors.blue,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 300.w),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 35, left: 16),
+          const Padding(
+            padding: EdgeInsets.only(top: 35, left: 16),
+            child: FractionallySizedBox(
+              widthFactor: 0.7,
               child: CustomTextWidget(
                 data: Constants.getQuick,
-                fontSize: 24.sp,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
+          const Padding(
+            padding: EdgeInsets.only(
               top: 12,
               left: 16,
             ),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 350),
-              child: CustomTextWidget(
-                data: Constants.signUp,
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w500,
-                color: ConstantColors.grey,
-              ),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 8, // 80% of the space
+                  child: CustomTextWidget(
+                    data: Constants.signUp,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: ConstantColors.grey,
+                  ),
+                ),
+                Spacer(flex: 2), // 30% of the space
+              ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 60, left: 16, right: 16),
-            child: TextFormField(
-                controller: phoneController,
-                key: _formKey,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  LengthLimitingTextInputFormatter(10),
-                ],
-                onChanged: (value) {
-                  setState(() {
+            child: Form(
+              key: _formKey,
+              child: TextFormField(
+                  controller: controller.phoneController,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(10),
+                  ],
+                  onChanged: (value) {
                     _formKey.currentState?.validate();
-                  });
-                },
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please return Phone Number";
-                  } else if (!isContactNumberValidate(value)) {
-                    return "Please enter a valid Phone Number";
-                  }
-                  return null;
-                },
-                cursorColor: ConstantColors.blueBorder,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelStyle: const TextStyle(
-                    color: ConstantColors.blueBorder,
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        color: ConstantColors.blueBorder, width: 2.0),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  labelText: Constants.mobileNumber,
-                  hintText: Constants.enterMobileNumber,
-                )),
+                    controller.phoneNumberListener();
+                  },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please return Phone Number";
+                    } else if (!isContactNumberValidate(value)) {
+                      return "Please enter a valid Phone Number";
+                    }
+                    return null;
+                  },
+                  cursorColor: ConstantColors.blueBorder,
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelStyle: const TextStyle(
+                      color: ConstantColors.blueBorder,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: ConstantColors.blueBorder, width: 2.0),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    labelText: Constants.mobileNumber,
+                    hintText: Constants.enterMobileNumber,
+                  )),
+            ),
           ),
           Padding(
               padding: const EdgeInsets.only(top: 15, left: 16, right: 150),
@@ -138,55 +130,42 @@ class _LoginScreenState extends State<LoginScreen> {
           const Spacer(
             flex: 1,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
-            child: Container(
-              width: double.infinity,
-              height: 48,
-              decoration: BoxDecoration(
-                color: phoneController.text.length >= 10
-                    ? Colors.orange
-                    : Colors.grey,
-                borderRadius: BorderRadius.circular(8), //
-              ),
-              child: MaterialButton(
-                onPressed: phoneController.text.length >= 10
-                    ? () {
-                        /*Navigator.of(context).pushReplacement(MaterialPageRoute(
+          Obx(() {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+              child: Container(
+                width: double.infinity,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: controller.phoneNumber.toString().length >= 10
+                      ? Colors.orange
+                      : Colors.grey,
+                  borderRadius: BorderRadius.circular(8), //
+                ),
+                child: MaterialButton(
+                  onPressed: controller.phoneNumber.toString().length >= 10
+                      ? () {
+                          /*Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
                                 OtpScreen(phoneNumber: phoneController.text)));*/
-                  Navigator.popAndPushNamed(context, AppPaths.otp, arguments: phoneController.text);
-                      }
-                    : null,
-                child: const Text(
-                  Constants.verify,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                          // Navigator.popAndPushNamed(context, AppRoutes.getLoginOtp.name, arguments: phoneController.text);
+                          /*context.goNamed(
+                          AppRoutes.getLoginOtp.path,
+                        );*/
+                          Get.to(const OtpScreen(),
+                              arguments: controller.phoneNumber.toString());
+                        }
+                      : null,
+                  child: const Text(
+                    Constants.verify,
+                    style: TextStyle(fontSize: 14, color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
-  }
-
-  @override
-  void didUpdateWidget(covariant LoginScreen oldWidget) {
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    print("sajid dispose");
-  }
-
-  @override
-  void deactivate() {
-    // TODO: implement deactivate
-    super.deactivate();
-    print(" deactivate");
   }
 }
